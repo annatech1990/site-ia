@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Communication Intuitive Animale</h1>
-    <p>Vraie description modifiée</p>
+    <p>Vraie description 2</p>
     <video controls width="100%">
       <!-- <source src="/public/presentation.mp4" type="video/mp4" /> -->
       Votre navigateur ne supporte pas la vidéo.
