@@ -1,17 +1,19 @@
 <template>
   <div class="formations">
     <h2>Formations</h2>
-    <div class="filters">
-      <select><option>Niveau</option></select>
-      <select><option>Pays</option></select>
-    </div>
-    <div class="cards">
-      <!-- Cards produits ici -->
-    </div>
+    <ProduitsListe 
+      titre="Nos formations et événements" 
+      @select-produit="goToDetail" 
+    />
   </div>
 </template>
 <script setup>
 import { useHead } from '@vueuse/head';
+import { useRouter } from 'vue-router';
+import ProduitsListe from '../components/ProduitsListe.vue';
+
+const router = useRouter();
+
 useHead({
   title: 'Formations - Communication Intuitive Animale',
   meta: [
@@ -22,9 +24,13 @@ useHead({
     { property: 'og:type', content: 'website' },
   ]
 });
+
+// Rediriger vers la page de détail d'un produit
+const goToDetail = (produit) => {
+  router.push(`/formations/${produit.niveau}/${produit.code}`);
+};
 </script>
 <style>
-
 .formations {
   width: 100%;
   margin: 0 auto;
@@ -41,24 +47,5 @@ h2 {
   font-size: 1.7rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
-}
-.filters {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-select {
-  background: #fff;
-  border: 1px solid rgb(34, 11, 76);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  color: #3B2E2B;
-  font-size: 1rem;
-}
-.cards {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
 }
 </style>

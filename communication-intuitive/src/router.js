@@ -12,6 +12,7 @@ import AccountView from './views/AccountView.vue';
 import CartView from './views/CartView.vue';
 import SearchView from './views/SearchView.vue';
 import RegisterView from './views/RegisterView.vue';
+import AdminView from './views/AdminView.vue';
 
 const routes = [
   { path: '/', component: HomeView },
@@ -25,6 +26,7 @@ const routes = [
   { path: '/panier', component: CartView },
   { path: '/recherche', component: SearchView },
   { path: '/inscription', component: RegisterView },
+  { path: '/admin', component: AdminView },
 ];
 
 const router = createRouter({
